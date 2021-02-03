@@ -6,17 +6,15 @@ def get_rating(file):
 
     for line in ratings:
         line = line.rstrip()
-        items = line.split(" ")
-
-        for item in items:
-            restaurant_rating[item] += 1
+        restaurant, score = line.split(":")
+        restaurant_rating[restaurant] = int(score)
+    print(restaurant_rating)
     
     for key, value in restaurant_rating.items():
         print(f"{key} is rated at {value}")
-        print(key, value)
-    
+        
     return restaurant_rating
     
-print(get_rating("scores.txt"))
+get_rating("scores.txt")
 
 
